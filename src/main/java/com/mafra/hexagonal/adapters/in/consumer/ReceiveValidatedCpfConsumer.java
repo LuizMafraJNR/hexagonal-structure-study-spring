@@ -16,7 +16,7 @@ public class ReceiveValidatedCpfConsumer {
     @Autowired
     private CustomerMessageMapper customerMessageMapper;
 
-    @KafkaListener(topics = "tp-cpf-validated", groupId = "arantes")
+    @KafkaListener(topics = "tp-cpf-validated", groupId = "aacs")
     public void receive(CustomerMessage customerMessage){
         var custoomer = customerMessageMapper.toCustomer(customerMessage);
         updateCustomerInputPort.update(custoomer,customerMessage.getZipCode());
