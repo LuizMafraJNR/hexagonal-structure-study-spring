@@ -1,5 +1,7 @@
 package com.mafra.hexagonal.config;
 
+import com.mafra.hexagonal.adapters.out.FindAddressByZipCodeAdapter;
+import com.mafra.hexagonal.adapters.out.UpdateCustomerAdapter;
 import com.mafra.hexagonal.application.core.usecase.FindCustomerByIdUseCase;
 import com.mafra.hexagonal.application.core.usecase.UpdateCustomerUseCase;
 import com.mafra.hexagonal.application.ports.out.FindAddressByZipCodeOutputPort;
@@ -12,9 +14,9 @@ public class UpdateCustomerConfig
 {
 	@Bean
 	public UpdateCustomerUseCase updateCustomerUseCase(
-		FindAddressByZipCodeOutputPort findAddressByZipCodeOutputPort,
-		FindCustomerByIdUseCase findCustomerByIdUseCase, UpdateCustomerOutputPort updateCustomerOutputPort)
+		FindAddressByZipCodeAdapter findAddressByZipCodeAdapter,
+		FindCustomerByIdUseCase findCustomerByIdUseCase, UpdateCustomerAdapter updateCustomerAdapter)
 	{
-		return new UpdateCustomerUseCase(findAddressByZipCodeOutputPort, findCustomerByIdUseCase, updateCustomerOutputPort);
+		return new UpdateCustomerUseCase(findAddressByZipCodeAdapter, findCustomerByIdUseCase, updateCustomerAdapter);
 	}
 }

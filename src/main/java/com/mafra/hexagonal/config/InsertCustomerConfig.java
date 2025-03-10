@@ -2,6 +2,7 @@ package com.mafra.hexagonal.config;
 
 import com.mafra.hexagonal.adapters.out.FindAddressByZipCodeAdapter;
 import com.mafra.hexagonal.adapters.out.InsertCustomerAdapter;
+import com.mafra.hexagonal.adapters.out.SendCpfValidationAdapter;
 import com.mafra.hexagonal.application.core.usecase.InsertCustomerUseCase;
 import com.mafra.hexagonal.application.ports.out.FindAddressByZipCodeOutputPort;
 import com.mafra.hexagonal.application.ports.out.InsertCustomerOutputPort;
@@ -16,8 +17,8 @@ public class InsertCustomerConfig {
     public InsertCustomerUseCase insertCustomerUseCase(
             FindAddressByZipCodeAdapter findAddressByZipCodeAdapter,
             InsertCustomerAdapter insertCustomerAdapter,
-            SendCpfForValidatioOutputPort sendCpfForValidatioOutputPort)
+            SendCpfValidationAdapter sendCpfValidationAdapter)
     {
-        return new InsertCustomerUseCase(findAddressByZipCodeAdapter, insertCustomerAdapter, sendCpfForValidatioOutputPort);
+        return new InsertCustomerUseCase(findAddressByZipCodeAdapter, insertCustomerAdapter, sendCpfValidationAdapter);
     }
 }
